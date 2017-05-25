@@ -102,9 +102,9 @@ $('document').ready(function () {
 
     // Click event for the down arrow of home
     $('#arrow-home').click(function () {
-        // scroll to projects
+        // scroll to resume
         $('html, body').animate({
-            scrollTop: $('.projects').offset().top
+            scrollTop: $('.resume').offset().top
         }, 600);
 
     });
