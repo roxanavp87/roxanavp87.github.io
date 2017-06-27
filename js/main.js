@@ -25,18 +25,11 @@
 
 
     // Projects
-
-
-    /*  //Projects Old version
-    var leftArrow = false, rightArrow = true;
-    var vidioSRC = ['video/simpleSimon.avi'];
-    var projects = $('.project-wrapper');
-    */
     var videoSRC = ['videos/simon.mov', 'videos/weatherChannel.mov', 'videos/tictactoe.mov'];
     var codeHref = ['https://github.com/roxanavp87/my-projects/tree/master/simpleSimon',
                     'https://github.com/roxanavp87/my-projects/tree/master/weatherApp',
                     'https://github.com/roxanavp87/my-projects/tree/master/TicTacToe'];
-    var linkColors = ['green', 'red', 'beige'];
+
 
     //------------------------------------------------------------------------------------------------------------------
     // Functions Navigation Bar
@@ -76,9 +69,6 @@
             }, 600);
         }
     }
-
-
-
 
 
     //------------------------------------------------------------------------------------------------------------------
@@ -127,7 +117,6 @@
     });
 
 
-
     //------------------------------------------------------------------------------------------------------------------
     // Events & Functions for Projects Section
     //------------------------------------------------------------------------------------------------------------------
@@ -153,18 +142,10 @@
 
         setTimeout(function () {
             //set up link for the code
-            // $('#code-link').css('display', 'block').css('color', linkColors[project_index]).attr('href', codeHref[project_index]);
             $('#code-link').css('display', 'flex').attr('href', codeHref[project_index]);
         }, 1500);
 
     });
-
-    // .hover(function () {
-    //     $(this).css('opacity', 0.6);
-    // }, function () {
-    //     $(this).css('opacity', 1);
-    // });
-
 
     $('#close-project').click(function () {
         $(this).hide();
@@ -193,11 +174,6 @@
     }, 30);
 
 
-
-
-
-
-
     //------------------------------------------------------------------------------------------------------------------
     // Events & Functions for Contact Section
     //------------------------------------------------------------------------------------------------------------------
@@ -207,7 +183,6 @@
         var regex = /^[\w-.+]+@[a-zA-Z0-9.-]+.[a-zA-z0-9]{2,4}$/;
         return regex.test(email);
     }
-
 
     // Click event submit button
     $('#submit').click(function (e) {
@@ -254,8 +229,6 @@
     });
 
 
-
-
     //------------------------------------------------------------------------------------------------------------------
     // Events Footer Section
     //------------------------------------------------------------------------------------------------------------------
@@ -288,164 +261,5 @@
     }, function () {
         $(this).attr("src", "img/email_logo.png");
     });
-
-
-
-
-
-    /*  //Projects Old version
-    $('#right-arrow').click(function () {
-        var indexOfLastActive;
-        $('#left-arrow').fadeIn();
-        leftArrow = true;
-
-        if(rightArrow) {
-
-            projects.each(function (index, project) {
-                var active = $(project).attr('data-active');
-                switch (active) {
-                    case '1':
-                        $(project).attr('data-active', '0');
-                        $(project).hide();
-                        break;
-                    case '2':
-                        $(project).attr('data-active', '1').show();
-                        indexOfLastActive = index + 1;
-                        if ((index + 1) === (projects.length - 1)) {
-                            $('#right-arrow').fadeOut();
-                            rightArrow = false;
-                        }
-                        break;
-                    default:
-                }
-            });
-
-            $(projects)[indexOfLastActive].setAttribute('data-active', '2');
-            $(projects)[indexOfLastActive].style.display = 'block';
-        }
-    });
-
-
-    $('#left-arrow').click(function () {
-        $('#right-arrow').fadeIn();
-        rightArrow = true;
-
-        if(leftArrow) {
-
-            projects.each(function (index, project) {
-                var active = $(project).attr('data-active');
-                switch (active) {
-                    case '1':
-                        $(project).attr('data-active', '2');
-                        $(projects)[index - 1].setAttribute('data-active', '1');
-                        $(projects)[index - 1].style.display = 'block';
-                        if ((index - 1) === 0) {
-                            $('#left-arrow').fadeOut();
-                            leftArrow = false;
-                        }
-                        break;
-                    case '2':
-                        $(project).attr('data-active', '0');
-                        $(project).hide();
-                        break;
-                    default:
-                }
-            });
-        }
-
-    });
-
-
-    projects.click(function () {
-
-
-        // var countBoxes = 0, transition = $('.transition-effect');
-        // transition.show();
-        //
-        // var intervalId = setInterval(function () {
-        //     if (countBoxes >= 20) {
-        //         clearInterval(intervalId);
-        //     } else {
-        //         countBoxes++;
-        //         $('.box').css('left', '+=5%');
-        //         transition.append('<div class="box"></div>');
-        //     }
-        // }, 30);
-
-
-        // Hide left and right arrows
-        $('#left-arrow').hide();
-        $('#right-arrow').hide();
-
-        //Show down arrow and close button
-        $('#down-arrow-wrapper').show('bounce', 'slow');
-        $('#close-project').fadeIn();
-
-        // Slide project to the left or right
-        if ($(this).attr('data-active') === '1') {
-            $(this).next().hide();
-            $(this).show('slide', 'right');
-
-        } else {
-            $(this).prev().hide();
-            $(this).show('slide', 'left');
-        }
-
-        //display video
-        $('#videoID').css('left', '33%').fadeIn().attr('data-active', $(this).attr('data-active')).attr('src', vidioSRC[0]).get(0).play();
-
-    });
-
-
-    $('#close-project').click(function () {
-
-        //Hide down arrow and close button
-        $(this).fadeOut();
-        $('#down-arrow-wrapper').fadeOut();
-
-        // Show active projects and hide video
-        projects.each(function (index, project) {
-            var active = $(project).attr('data-active');
-            switch (active) {
-                case '1':
-
-                    if($('#videoID').attr('data-active') === '1') {
-                        $('#videoID').animate({left: '10%'}, 300, function () {
-                            $('#videoID').hide();
-                            $(project).fadeIn();
-                        });
-                    } else {
-                        $(project).fadeIn();
-                    }
-
-                    $('#right-arrow').fadeIn();
-                    if (index !== 0) {
-                        $('#left-arrow').fadeIn();
-                    }
-
-                    break;
-                case '2':
-
-                    if($('#videoID').attr('data-active') === '2') {
-                        $('#videoID').animate({left: '56%'}, 300, function () {
-                            $('#videoID').hide();
-                            $(project).fadeIn();
-                        });
-                    } else {
-                        $(project).fadeIn();
-                    }
-
-                    $('#left-arrow').fadeIn();
-                    if (index !== (projects.length - 1)) {
-                        $('#right-arrow').fadeIn();
-                    }
-
-                    break;
-                default:
-            }
-        });
-    });
-*/
-
 
 })();
