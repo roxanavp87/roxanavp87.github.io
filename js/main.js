@@ -32,7 +32,11 @@
     var vidioSRC = ['video/simpleSimon.avi'];
     var projects = $('.project-wrapper');
     */
-    var videoSRC = ['videos/simon.mov'];
+    var videoSRC = ['videos/simon.mov', 'videos/weatherChannel.mov', 'videos/tictactoe.mov'];
+    var codeHref = ['https://github.com/roxanavp87/my-projects/tree/master/simpleSimon',
+                    'https://github.com/roxanavp87/my-projects/tree/master/weatherApp',
+                    'https://github.com/roxanavp87/my-projects/tree/master/TicTacToe'];
+    var linkColors = ['green', 'red', 'beige'];
 
     //------------------------------------------------------------------------------------------------------------------
     // Functions Navigation Bar
@@ -139,11 +143,16 @@
         $('#close-project').css('display', 'flex');
 
         // display video
+        var project_index = parseInt($(this).attr('data-index'));
         setTimeout(function(){
             $('.project').css('display', 'none');
-            $('.video').show().attr('src', videoSRC[0]).get(0).play();
+            $('.video').show().attr('src', videoSRC[project_index]).get(0).play();
+
+            //set up link for the code
+            $('#code-link').css('display', 'block').css('color', linkColors[project_index]).attr('href', codeHref[project_index]);
         }, 900);
-        // $('.video').show().attr('src', videoSRC[0]).get(0).play();
+
+
     });
 
     // .hover(function () {
@@ -162,6 +171,8 @@
         $project.each(function (index, proj) {
             $(proj).delay((index+1)*100).slideToggle(1500);
         });
+
+        $('#code-link').hide();
     });
 
     var countBoxes = 0, transition = $('.transition-effect');
