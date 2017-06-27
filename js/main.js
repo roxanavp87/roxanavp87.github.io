@@ -144,14 +144,18 @@
 
         // display video
         var project_index = parseInt($(this).attr('data-index'));
-        setTimeout(function(){
-            $('.project').css('display', 'none');
-            $('.video').show().attr('src', videoSRC[project_index]).get(0).play();
+        if($(window).width() > 1200) {
+            setTimeout(function () {
+                $('.project').css('display', 'none');
+                $('.video').show().attr('src', videoSRC[project_index]).get(0).play();
+            }, 900);
+        }
 
+        setTimeout(function () {
             //set up link for the code
-            $('#code-link').css('display', 'block').css('color', linkColors[project_index]).attr('href', codeHref[project_index]);
-        }, 900);
-
+            // $('#code-link').css('display', 'block').css('color', linkColors[project_index]).attr('href', codeHref[project_index]);
+            $('#code-link').css('display', 'flex').attr('href', codeHref[project_index]);
+        }, 1500);
 
     });
 
