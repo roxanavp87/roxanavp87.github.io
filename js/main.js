@@ -3,7 +3,7 @@
  */
 
 
-$('document').ready(function () {
+(function () {
     'use strict';
 
     //------------------------------------------------------------------------------------------------------------------
@@ -32,6 +32,7 @@ $('document').ready(function () {
     var vidioSRC = ['video/simpleSimon.avi'];
     var projects = $('.project-wrapper');
     */
+    var videoSRC = ['videos/simon.mov'];
 
     //------------------------------------------------------------------------------------------------------------------
     // Functions Navigation Bar
@@ -129,13 +130,20 @@ $('document').ready(function () {
 
     // Click event for the projects
     $('.project').click(function () {
-        $(this).attr("data-active", "true");
+        $(this).show().attr('data-active', 'true');
         $('.project').each(function (index, proj) {
-            if( $(proj).attr("data-active") === "false") {
+            if( $(proj).attr('data-active') === 'false') {
                 $(proj).delay((index+1)*100).slideUp();
             }
         });
         $('#close-project').css('display', 'flex');
+
+        // display video
+        setTimeout(function(){
+            $('.project').css('display', 'none');
+            $('.video').show().attr('src', videoSRC[0]).get(0).play();
+        }, 900);
+        // $('.video').show().attr('src', videoSRC[0]).get(0).play();
     });
 
     // .hover(function () {
@@ -147,9 +155,11 @@ $('document').ready(function () {
 
     $('#close-project').click(function () {
         $(this).hide();
-        $('.project').attr("data-active", "false").hide();
+        $('.video').hide();
+        var $project = $('.project');
+        $project.attr('data-active', 'false').hide();
 
-        $('.project').each(function (index, proj) {
+        $project.each(function (index, proj) {
             $(proj).delay((index+1)*100).slideToggle(1500);
         });
     });
@@ -166,6 +176,9 @@ $('document').ready(function () {
             transition.append('<div class="box"></div>');
         }
     }, 30);
+
+
+
 
 
 
@@ -420,4 +433,4 @@ $('document').ready(function () {
 */
 
 
-});
+})();

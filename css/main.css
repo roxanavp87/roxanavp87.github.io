@@ -253,6 +253,7 @@ ul.nav-links  a:hover {
     cursor: pointer;
     display: none;
     background-color: white;
+    z-index: 1;
 }
 
 #close-project a {
@@ -261,6 +262,20 @@ ul.nav-links  a:hover {
     font-weight: bold;
     color: #167532;
     text-decoration: none;
+}
+
+.video {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    background-size: cover;
+    overflow: hidden;
 }
 
 /*.projects {*/
