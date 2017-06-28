@@ -177,19 +177,19 @@
 <div class="contact">
     <p>Need help with a project? Send me a little information about what you're looking for and I'll be in touch!</p>
 
-    <form>
+    <form method="post" action="https://formspree.io/roxanavp87@gmail.com">
         <div id="email-wrapper" class="form-group">
             <label for="input-email">Email address</label>
             <div class="input-group">
                 <span class="input-group-addon">@</span>
-                <input type="email" class="form-control" id="input-email">
+                <input type="email" class="form-control" id="input-email" name="_replyto">
             </div>
             <span id="span" class="glyphicon form-control-feedback" aria-hidden="true"></span>
         </div>
 
         <div id="msg-wrapper" class="form-group">
             <label for="message">Message</label>
-            <textarea id="message" class="form-control" rows="5"></textarea>
+            <textarea id="message" name="body" class="form-control" rows="5"></textarea>
             <span id="spanm" class="glyphicon form-control-feedback" aria-hidden="true"></span>
         </div>
 
