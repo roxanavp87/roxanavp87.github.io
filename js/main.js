@@ -31,6 +31,9 @@
                     'https://github.com/roxanavp87/my-projects/tree/master/weatherApp',
                     'https://github.com/roxanavp87/my-projects/tree/master/TicTacToe'];
 
+    var $video = $('.video');
+    var $project = $('.project');
+    var $close_project = $('#close-project');
 
     //------------------------------------------------------------------------------------------------------------------
     // Functions Navigation Bar
@@ -123,21 +126,25 @@
     //------------------------------------------------------------------------------------------------------------------
 
     // Click event for the projects
-    $('.project').click(function () {
+    $project.click(function () {
         $(this).show().attr('data-active', 'true');
-        $('.project').each(function (index, proj) {
+        $project.each(function (index, proj) {
             if( $(proj).attr('data-active') === 'false') {
                 $(proj).delay((index+1)*100).slideUp();
             }
         });
-        $('#close-project').css('display', 'flex');
+        $close_project.css('display', 'flex');
 
         // display video
         var project_index = parseInt($(this).attr('data-index'));
         if($(window).width() > 1200) {
             setTimeout(function () {
-                $('.project').css('display', 'none');
-                $('.video').show().attr('src', videoSRC[project_index]).get(0).play();
+                $video.show().attr('src', videoSRC[project_index]).get(0).play();
+                $video.on("loadeddata", function () {
+                    console.log("ok");
+                    $project.css('display', 'none');
+                });
+                $project.css('display', 'none');
             }, 900);
         }
 
@@ -148,10 +155,9 @@
 
     });
 
-    $('#close-project').click(function () {
+    $close_project.click(function () {
         $(this).hide();
-        $('.video').hide();
-        var $project = $('.project');
+        $video.hide();
         $project.attr('data-active', 'false').hide();
 
         $project.each(function (index, proj) {
