@@ -63,9 +63,10 @@
                 }
             }, 1000);
         } else if($(target).html() === "<span class=\"text-capitalize\">R</span>esume") {
-            $('html, body').animate({
-                scrollTop: $('.resume').offset().top
-            }, 600);
+            // $('html, body').animate({
+            //     scrollTop: $('.resume').offset().top
+            // }, 600);
+
 
         } else if($(target).html() === "<span class=\"text-capitalize\">C</span>ontact") {
             $('html, body').animate({
