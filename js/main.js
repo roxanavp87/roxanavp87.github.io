@@ -179,36 +179,40 @@
     }, 30);
 
 
-    // $('#right-arrow').click(function () {
-    //     var indexOfLastActive;
-    //     $('#left-arrow').fadeIn();
-    //     leftArrow = true;
-    //
-    //     if(rightArrow) {
-    //
-    //         projects.each(function (index, project) {
-    //             var active = $(project).attr('data-active');
-    //             switch (active) {
-    //                 case '1':
-    //                     $(project).attr('data-active', '0');
-    //                     $(project).hide();
-    //                     break;
-    //                 case '2':
-    //                     $(project).attr('data-active', '1').show();
-    //                     indexOfLastActive = index + 1;
-    //                     if ((index + 1) === (projects.length - 1)) {
-    //                         $('#right-arrow').fadeOut();
-    //                         rightArrow = false;
-    //                     }
-    //                     break;
-    //                 default:
-    //             }
-    //         });
-    //
-    //         $(projects)[indexOfLastActive].setAttribute('data-active', '2');
-    //         $(projects)[indexOfLastActive].style.display = 'block';
-    //     }
-    // });
+    var $projects = $('.project');
+    $('#right-arrow').click(function () {
+        var indexOfLastActive;
+        // $('#left-arrow').fadeIn();
+        // leftArrow = true;
+
+        if(true) {
+
+            $projects.each(function (index, project) {
+                var current = $(project).attr('data-current');
+                switch (current) {
+                    case '1':
+                        $(project).attr('data-current', '0');
+                        $(project).hide();
+                        break;
+                    case '2':
+                        $(project).attr('data-current', '1').show();
+                        break;
+                    case '3':
+                        $(project).attr('data-current', '2').show();
+                        indexOfLastActive = index + 1;
+                        if ((index + 1) === (projects.length - 1)) {
+                            $('#right-arrow').fadeOut();
+                            // rightArrow = false;
+                        }
+                        break;
+                    default:
+                }
+            });
+
+            $projects[indexOfLastActive].setAttribute('data-current', '3');
+            $projects[indexOfLastActive].style.display = 'block';
+        }
+    });
 
 
     // $('#left-arrow').click(function () {
