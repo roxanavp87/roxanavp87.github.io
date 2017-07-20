@@ -68,7 +68,7 @@ body {
 #my-logo img {
     margin: auto;
     cursor: pointer;
-    width: 400px;
+    width: 380px;
     height: 105px;
     margin-top: -35px;
 }
@@ -185,20 +185,20 @@ ul.nav-links  a:hover {
 
 .container-fluid {
     display: none;
-    height: 92%;
+    height: 90%;
 }
 
 #aboutMe {
-    width: 543px;
     margin: auto;
-    margin-right: 25px;
+    margin-right: 6em;
+    overflow: scroll;
 
 }
 
 .about-text {
     opacity: 0;
-    width: 543px;
-    padding-top: 20px;
+    width: 24em;
+    padding: 0.5em;
     text-align: justify;
     text-justify: inter-word;
     font-size: 25px;
@@ -206,13 +206,14 @@ ul.nav-links  a:hover {
     font-weight: bold;
     font-style: normal;
     font-variant: normal;
-    line-height: 26.4px;
+    line-height: 1.3em;
     color: #163a2d;
     text-shadow: 2px 3px 3px #9aa59a;
 }
 
 #about-text-1 {
-    padding-top: 0;
+    padding: 0.5em;
+    padding-top: 1em;
     display: none;
     opacity: 1;
 }
@@ -504,15 +505,10 @@ label {
         width: 100%;
     }
 
-    #aboutMe {
-        width: 500px;
-
-    }
-
-    .about-text {
-        width: 500px;
-        font-size: 23px;
-    }
+    /*.about-text {*/
+        /*width: 500px;*/
+        /*font-size: 23px;*/
+    /*}*/
 }
 
 /* Small */
@@ -597,16 +593,15 @@ label {
         padding-left: 15px;
     }
 
+    #aboutMe {
+        margin: auto;
+    }
+
 }
 
 @media screen and (max-width: 600px) {
     #my-logo img {
         width: 90%;
-    }
-
-    #aboutMe {
-        margin: auto;
-        width: 450px;
     }
 
     .about-text {
@@ -644,10 +639,6 @@ label {
         margin: 22px auto;
         justify-content: center;
         width: 100%;
-    }
-
-    #aboutMe {
-        width: 380px;
     }
 
     .about-text {
