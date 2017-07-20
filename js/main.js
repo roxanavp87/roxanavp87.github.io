@@ -66,8 +66,6 @@
             // $('html, body').animate({
             //     scrollTop: $('.resume').offset().top
             // }, 600);
-
-
         } else if($(target).html() === "<span class=\"text-capitalize\">C</span>ontact") {
             $('html, body').animate({
                 scrollTop: $('.contact').offset().top
@@ -111,7 +109,6 @@
 
     // Click event for the links of the navigation bar
     $('.nav-links a').click(function (event) {
-        event.preventDefault();
         navbar(this);
     });
 
