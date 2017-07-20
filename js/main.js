@@ -179,7 +179,66 @@
     }, 30);
 
 
+    // $('#right-arrow').click(function () {
+    //     var indexOfLastActive;
+    //     $('#left-arrow').fadeIn();
+    //     leftArrow = true;
+    //
+    //     if(rightArrow) {
+    //
+    //         projects.each(function (index, project) {
+    //             var active = $(project).attr('data-active');
+    //             switch (active) {
+    //                 case '1':
+    //                     $(project).attr('data-active', '0');
+    //                     $(project).hide();
+    //                     break;
+    //                 case '2':
+    //                     $(project).attr('data-active', '1').show();
+    //                     indexOfLastActive = index + 1;
+    //                     if ((index + 1) === (projects.length - 1)) {
+    //                         $('#right-arrow').fadeOut();
+    //                         rightArrow = false;
+    //                     }
+    //                     break;
+    //                 default:
+    //             }
+    //         });
+    //
+    //         $(projects)[indexOfLastActive].setAttribute('data-active', '2');
+    //         $(projects)[indexOfLastActive].style.display = 'block';
+    //     }
+    // });
 
+
+    // $('#left-arrow').click(function () {
+    //     $('#right-arrow').fadeIn();
+    //     rightArrow = true;
+    //
+    //     if(leftArrow) {
+    //
+    //         projects.each(function (index, project) {
+    //             var active = $(project).attr('data-active');
+    //             switch (active) {
+    //                 case '1':
+    //                     $(project).attr('data-active', '2');
+    //                     $(projects)[index - 1].setAttribute('data-active', '1');
+    //                     $(projects)[index - 1].style.display = 'block';
+    //                     if ((index - 1) === 0) {
+    //                         $('#left-arrow').fadeOut();
+    //                         leftArrow = false;
+    //                     }
+    //                     break;
+    //                 case '2':
+    //                     $(project).attr('data-active', '0');
+    //                     $(project).hide();
+    //                     break;
+    //                 default:
+    //             }
+    //         });
+    //     }
+    //
+    // });
 
 
     //------------------------------------------------------------------------------------------------------------------
