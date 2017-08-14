@@ -289,6 +289,23 @@ ul.nav-links  a:hover {
     font-weight: bolder;
 }
 
+.arrows > img {
+    position: absolute;
+    top: 50%;
+    width: 5%;
+    cursor: pointer;
+}
+
+#right-arrow {
+    right: 0;
+    transform: rotate(-90deg);
+}
+
+#left-arrow {
+    left: 0;
+    transform: rotate(90deg);
+}
+
 
 /*----------------------------------------------------------------------------------------------------------------------
    Resume

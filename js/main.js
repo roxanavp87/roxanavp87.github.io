@@ -122,12 +122,12 @@
     //------------------------------------------------------------------------------------------------------------------
     // Events & Functions for Projects Section
     //------------------------------------------------------------------------------------------------------------------
-
     // Click event for the projects
     $project.click(function () {
         $(this).show().attr('data-active', 'true');
         $project.each(function (index, proj) {
-            if( $(proj).attr('data-active') === 'false') {
+            var current = $(proj).attr('data-current');
+            if( $(proj).attr('data-active') === 'false' && current !== '0') {
                 $(proj).delay((index+1)*100).slideUp();
             }
         });
@@ -159,7 +159,10 @@
         $project.attr('data-active', 'false').hide();
 
         $project.each(function (index, proj) {
-            $(proj).delay((index+1)*100).slideToggle(1500);
+            var current = $(proj).attr('data-current');
+            if( current !== '0') {
+                $(proj).delay((index + 1) * 100).slideToggle(1500);
+            }
         });
 
         $('#code-link').hide();
@@ -185,33 +188,32 @@
         // $('#left-arrow').fadeIn();
         // leftArrow = true;
 
-        if(true) {
+        $projects.each(function (index, project) {
+            var current = $(project).attr('data-current');
+            switch (current) {
+                case '1':
+                    $(project).attr('data-current', '0');
+                    $(project).hide();
+                    break;
+                case '2':
+                    $(project).attr('data-current', '1').show();
+                    break;
+                case '3':
+                    $(project).attr('data-current', '2').show();
+                    indexOfLastActive = index + 1;
+                    console.log(indexOfLastActive);
+                    if ((index + 1) === ($projects.length - 1)) {
+                        $('#right-arrow').fadeOut();
+                        // rightArrow = false;
+                    }
+                    break;
+                default:
+            }
+        });
 
-            $projects.each(function (index, project) {
-                var current = $(project).attr('data-current');
-                switch (current) {
-                    case '1':
-                        $(project).attr('data-current', '0');
-                        $(project).hide();
-                        break;
-                    case '2':
-                        $(project).attr('data-current', '1').show();
-                        break;
-                    case '3':
-                        $(project).attr('data-current', '2').show();
-                        indexOfLastActive = index + 1;
-                        if ((index + 1) === (projects.length - 1)) {
-                            $('#right-arrow').fadeOut();
-                            // rightArrow = false;
-                        }
-                        break;
-                    default:
-                }
-            });
+        $projects[indexOfLastActive].setAttribute('data-current', '3');
+        $projects[indexOfLastActive].style.display = 'block';
 
-            $projects[indexOfLastActive].setAttribute('data-current', '3');
-            $projects[indexOfLastActive].style.display = 'block';
-        }
     });
 
 
