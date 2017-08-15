@@ -172,8 +172,9 @@ ul.nav-links  a:hover {
 
 .down-arrow {
     cursor: pointer;
-    width: 33px;
+    width: 35px;
     display: none;
+    transform: rotate(90deg);
 }
 
 .about {
@@ -289,106 +290,38 @@ ul.nav-links  a:hover {
     font-weight: bolder;
 }
 
-
-/*----------------------------------------------------------------------------------------------------------------------
-   Resume
-----------------------------------------------------------------------------------------------------------------------*/
-.education, .experience {
-    background-color: rgba(22, 117, 50, 0.1);
-    margin: 0;
-    padding: 60px;
+.arrows > img {
+    position: absolute;
+    top: 50%;
+    width: 5%;
+    cursor: pointer;
 }
 
-.rdate {
-    color: grey;
-    font-size: 13px;
+#right-arrow {
+    right: 1%;
 }
 
-.rtitle {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 25px;
-    font-weight: bold;
-    font-style: normal;
-    font-variant: normal;
-    line-height: 26.4px;
-    color: #163a2d;
+#left-arrow {
+    left: 1%;
+    transform: rotate(180deg);
 }
 
-.rplace {
-    font-weight: 600;
-    font-size: 17px;
-    color: #728872;
-}
-
-.new-line {
-    margin-bottom: 25px;
-}
-
-.resume-logo {
+.project-title {
+    position: absolute;
+    width: 33.33%;
+    height: 12%;
+    margin-bottom: 0;
+    margin-top: 0;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    color: rgb(39, 87, 68);
+    font-weight: bold;
+    background-color: #b9d5c2;
 }
 
-.resume-logo span {
-    text-transform: uppercase;
-    font-family: 'Bungee Inline', cursive;
-    margin: 10px auto;
-    text-shadow: 3px 3px 3px darkgreen;
-    color: #b7c6b9;
-    font-size: 28px;
-}
-
-.resume-logo img {
-    width: 80px;
-    height: 80px;
+.project-title > h1 {
     margin: auto;
 }
-
-.resume-content p {
-    padding-left: 10%;
-}
-
-.skillset {
-    background-color: rgba(230, 229, 230, 0.1);
-    margin: 0;
-    padding: 60px;
-}
-
-.skilset-col1 {
-    padding-right: 45px;
-    padding-left: 15px;
-}
-
-.skilset-col2 {
-    padding-right: 15px;
-    padding-left: 45px;
-}
-
-.skilset-col1, .skilset-col2 > p {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    font-style: normal;
-    font-variant: normal;
-    line-height: 26.4px;
-    color: #163a2d;
-}
-
-.progress-bar-success {
-    background-color: #004a34;
-}
-
-.glyphicon-new-window {
-    color: #728872;
-}
-
-.glyphicon-new-window:hover {
-    color: #004a34;
-}
-
-
-
 
 
 /*----------------------------------------------------------------------------------------------------------------------
@@ -504,11 +437,6 @@ label {
     #my-logo img {
         width: 100%;
     }
-
-    /*.about-text {*/
-        /*width: 500px;*/
-        /*font-size: 23px;*/
-    /*}*/
 }
 
 /* Small */
@@ -563,38 +491,12 @@ label {
         margin-right: 5%;
     }
 
-    .resume-logo {
-        flex-direction: row-reverse;
-    }
-
-    .resume-logo img {
-        margin: 10% 5% 5% 10%;
-    }
-
-    .resume-logo span {
-        align-self: center;
-        margin-left: 10px;
-        margin-top: 35px;
-    }
-
-    .education, .experience {
-        padding: 0 0 60px 0;
-    }
-
-    .skillset {
-        padding-top: 30px;
-    }
-
-    .skilset-col1 {
-        padding-right: 15px;
-    }
-
-    .skilset-col2 {
-        padding-left: 15px;
-    }
-
     #aboutMe {
         margin: auto;
+    }
+
+    .arrows > img {
+        width: 8%;
     }
 
 }
@@ -644,5 +546,9 @@ label {
     .about-text {
         width: 380px;
         font-size: 20px;
+    }
+
+    .arrows > img {
+        width: 10%;
     }
 }

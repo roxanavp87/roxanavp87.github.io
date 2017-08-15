@@ -26,14 +26,16 @@
 
 
     // Projects
-    var videoSRC = ['videos/simon.mov', 'videos/weatherChannel.mov', 'videos/tictactoe.mov'];
-    var codeHref = ['https://github.com/roxanavp87/my-projects/tree/master/simpleSimon',
+    var videoSRC = ['videos/getIt.mov', 'videos/weatherChannel.mov', 'videos/tictactoe.mov', 'videos/simon.mov'];
+    var codeHref = ['https://github.com/Capstone-Notably/Get-It',
                     'https://github.com/roxanavp87/my-projects/tree/master/weatherApp',
-                    'https://github.com/roxanavp87/my-projects/tree/master/TicTacToe'];
+                    'https://github.com/roxanavp87/my-projects/tree/master/TicTacToe',
+                    'https://github.com/roxanavp87/my-projects/tree/master/simpleSimon'];
 
     var $video = $('.video');
-    var $project = $('.project');
     var $close_project = $('#close-project');
+    var $projects = $('.project');
+    var rightArrow = true, leftArrow = false;
 
     //------------------------------------------------------------------------------------------------------------------
     // Functions Navigation Bar
@@ -122,12 +124,13 @@
     //------------------------------------------------------------------------------------------------------------------
     // Events & Functions for Projects Section
     //------------------------------------------------------------------------------------------------------------------
-
     // Click event for the projects
-    $project.click(function () {
+    $projects.click(function () {
+        $('.project-title').hide();
         $(this).show().attr('data-active', 'true');
-        $project.each(function (index, proj) {
-            if( $(proj).attr('data-active') === 'false') {
+        $projects.each(function (index, proj) {
+            var current = $(proj).attr('data-current');
+            if( $(proj).attr('data-active') === 'false' && current !== '0') {
                 $(proj).delay((index+1)*100).slideUp();
             }
         });
@@ -140,9 +143,9 @@
                 $video.show().attr('src', videoSRC[project_index]).get(0).play();
                 $video.on("loadeddata", function () {
                     console.log("ok");
-                    $project.css('display', 'none');
+                    $projects.css('display', 'none');
                 });
-                $project.css('display', 'none');
+                $projects.css('display', 'none');
             }, 900);
         }
 
@@ -156,13 +159,17 @@
     $close_project.click(function () {
         $(this).hide();
         $video.hide();
-        $project.attr('data-active', 'false').hide();
+        $projects.attr('data-active', 'false').hide();
 
-        $project.each(function (index, proj) {
-            $(proj).delay((index+1)*100).slideToggle(1500);
+        $projects.each(function (index, proj) {
+            var current = $(proj).attr('data-current');
+            if( current !== '0') {
+                $(proj).delay((index + 1) * 100).slideToggle(1500);
+            }
         });
 
         $('#code-link').hide();
+        $('.project-title').show();
     });
 
     var countBoxes = 0, transition = $('.transition-effect');
@@ -177,6 +184,73 @@
             transition.append('<div class="box"></div>');
         }
     }, 30);
+
+
+    $('#right-arrow').click(function () {
+        var indexOfLastActive;
+        $('#left-arrow').fadeIn();
+        leftArrow = true;
+
+        if(rightArrow) {
+            $projects.each(function (index, proj) {
+                var current = $(proj).attr('data-current');
+                switch (current) {
+                    case '1':
+                        $(proj).attr('data-current', '0').hide();
+                        break;
+                    case '2':
+                        $(proj).attr('data-current', '1').show();
+                        break;
+                    case '3':
+                        $(proj).attr('data-current', '2').show();
+                        indexOfLastActive = index + 1;
+                        console.log(indexOfLastActive);
+                        if ((index + 1) === ($projects.length - 1)) {
+                            $('#right-arrow').fadeOut();
+                            rightArrow = false;
+                        }
+                        break;
+                    default:
+                }
+            });
+
+            $projects[indexOfLastActive].setAttribute('data-current', '3');
+            $projects[indexOfLastActive].style.display = 'block';
+        }
+
+    });
+
+
+    $('#left-arrow').click(function () {
+        $('#right-arrow').fadeIn();
+        rightArrow = true;
+
+        if(leftArrow) {
+            $projects.each(function (index, proj) {
+                var current = $(proj).attr('data-current');
+                switch (current) {
+                    case '1':
+                        $(proj).attr('data-current', '2');
+                        $($projects)[index - 1].setAttribute('data-current', '1');
+                        $($projects)[index - 1].style.display = 'block';
+                        if ((index - 1) === 0) {
+                            $('#left-arrow').fadeOut();
+                            leftArrow = false;
+                        }
+                        break;
+                    case '2':
+                        $(proj).attr('data-current', '3').show();
+                        break;
+                    case '3':
+                        $(proj).attr('data-current', '0');
+                        $(proj).hide();
+                        break;
+                    default:
+                }
+            });
+        }
+
+    });
 
 
     //------------------------------------------------------------------------------------------------------------------
