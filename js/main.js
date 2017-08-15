@@ -126,6 +126,7 @@
     //------------------------------------------------------------------------------------------------------------------
     // Click event for the projects
     $projects.click(function () {
+        $('.project-title').hide();
         $(this).show().attr('data-active', 'true');
         $projects.each(function (index, proj) {
             var current = $(proj).attr('data-current');
@@ -168,6 +169,7 @@
         });
 
         $('#code-link').hide();
+        $('.project-title').show();
     });
 
     var countBoxes = 0, transition = $('.transition-effect');
