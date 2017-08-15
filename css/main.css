@@ -172,8 +172,9 @@ ul.nav-links  a:hover {
 
 .down-arrow {
     cursor: pointer;
-    width: 33px;
+    width: 35px;
     display: none;
+    transform: rotate(90deg);
 }
 
 .about {
@@ -297,13 +298,12 @@ ul.nav-links  a:hover {
 }
 
 #right-arrow {
-    right: 0;
-    transform: rotate(-90deg);
+    right: 1%;
 }
 
 #left-arrow {
-    left: 0;
-    transform: rotate(90deg);
+    left: 1%;
+    transform: rotate(180deg);
 }
 
 
@@ -614,6 +614,10 @@ label {
         margin: auto;
     }
 
+    .arrows > img {
+        width: 8%;
+    }
+
 }
 
 @media screen and (max-width: 600px) {
@@ -661,5 +665,9 @@ label {
     .about-text {
         width: 380px;
         font-size: 20px;
+    }
+
+    .arrows > img {
+        width: 10%;
     }
 }
